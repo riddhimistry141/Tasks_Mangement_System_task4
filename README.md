@@ -7,25 +7,16 @@ A responsive **Task Management System** developed using **HTML5, CSS3, JavaScrip
 ## 📸 Project Screenshots
 
 ### 🔐 Login Page
-
-> Add screenshot here
-
 ![Login Page](images/login-page.png)
 
 ---
 
 ### 📝 Sign Up Page
-
-> Add screenshot here
-
 ![Sign Up Page](images/signup-page.png)
 
 ---
 
 ### 📊 Dashboard
-
-> Add screenshot here
-
 ![Dashboard](images/dashboard-page.png)
 
 ---
