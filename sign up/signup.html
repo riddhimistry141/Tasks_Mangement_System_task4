@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+
+    <!----------------------------------------------------------
+     THIRD-PARTY UI FRAMEWORKS & EXTERNAL ICONS                
+   ----------------------------------------------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!---------------------------------------------------------
+     LOCAL CUSTOM APPLICATION STYLESHEETS                    
+    ----------------------------------------------------------->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-----------------------------------------------------------
+     SHARED PROJECT LOGIC SCRIPTS & UTILITIES    
+     ----------------------------------------------------------->
+    <script src="../Only_JS/config.js"></script>
+    <script src="../Only_JS/auth.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+    <script src="../Only_JS/loader.js"></script>
+    <script src="signup.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <!--MAIN WRAPPER: Centers the entire registration card vertically and horizontally on screens -->
+    <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center py-4">
+
+        <!--LAYOUT CARD: Split structure dividing form options (left) from visual displays (right)-->
+        <div class="row shadow-lg rounded-4 overflow-hidden w-100 g-0" style="max-width: 1100px;">
+
+            <!--LEFT COLUMN: Contains user interactive fields for input control -->
+            <div class="col-lg-6 bg-white p-4 p-md-5">
+                <form class="w-100" id="registerForm">
+                    <img class="img-fluid mb-4 w-25" src="../images/logo.png" alt="Logo">
+
+                    <div class="mb-4">
+                        <h1 class="fw-bold mb-2">Welcome</h1>
+                        <p class="text-muted">Create an account to manage your tasks</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addFName" class="form-label fw-bold">Full Name</label>
+                        <input id="addFName" type="text" class="form-control form-control-lg"
+                            placeholder="Enter your full name" minlength="3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addUName" class="form-label fw-bold">Username</label>
+                        <input id="addUName" type="text" class="form-control form-control-lg"
+                            placeholder="Enter your username" minlength="3" maxlength="20">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addGender" class="form-label fw-bold">Gender</label>
+                        <select id="addGender" class="form-select form-select-lg">
+                            <option value="" selected disabled>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addPhone" class="form-label fw-bold">Phone Number</label>
+                        <input id="addPhone" type="tel" class="form-control form-control-lg"
+                            placeholder="Enter your phone number" maxlength="10" pattern="[0-9]{10}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addEmail" class="form-label fw-bold">Email</label>
+                        <input id="addEmail" type="email" class="form-control form-control-lg"
+                            placeholder="Enter your email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addPWd" class="form-label fw-bold">Password</label>
+                        <input id="addPWd" type="password" class="form-control form-control-lg"
+                            placeholder="Enter your password" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="addCPWd" class="form-label fw-bold">Confirm Password</label>
+                        <input id="addCPWd" type="password" class="form-control form-control-lg"
+                            placeholder="Confirm your password">
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button class="btn btn-dark w-100" type="submit">Submit</button>
+                    </div>
+
+                    <p class="text-muted text-center mt-3">Already have an account? <a
+                            href="../login/login_page.html">Sign In</a></p>
+                </form>
+            </div>
+
+            <!--RIGHT COLUMN: Informational sidebar graphic (hides on low screen profiles)-->
+            <div class="col-lg-6 bg-primary text-white p-4 p-md-5 d-flex align-items-center">
+                <div class="w-100">
+                    <h2 class="fw-bold mb-3">Organize your day</h2>
+                    <p class="text-white-50 mb-4">Create an account and start planning tasks, deadlines, and progress in
+                        one simple place.</p>
+
+                    <div class="bg-white rounded-4 p-3 text-dark">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="w-100"
+                            style="height: auto;">
+                            <rect x="60" y="70" width="280" height="180" rx="20" fill="#ffffff"></rect>
+                            <rect x="90" y="105" width="140" height="14" rx="7" fill="#2563eb"></rect>
+                            <rect x="90" y="135" width="180" height="12" rx="6" fill="#93c5fd"></rect>
+                            <rect x="90" y="160" width="150" height="12" rx="6" fill="#93c5fd"></rect>
+                            <circle cx="285" cy="150" r="40" fill="#10b981"></circle>
+                            <path d="M262 150l16 16 28-32" stroke="#fff" stroke-width="10" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

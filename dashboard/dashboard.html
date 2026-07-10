@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../Only_JS/config.js"></script>
+    <script src="../Only_JS/auth.js"></script>
+
+    <script src="tasks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+
+</head>
+
+<body>
+    <div class="dashboard-shell">
+        <header class="dashboard-header">
+            <div class="brand-wrap">
+                <button class="menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                    aria-controls="offcanvas" aria-label="Open navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 class="h3 mb-0">Dashboard</h1>
+            </div>
+            <div class="header-actions">
+                <span class="status-pill">Online</span>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="welcome-card d-flex align-items-center gap-3">
+                <img id="profileAvatar" src="../images/profile.png" alt="Avatar" class="profile-avatar">
+                <div>
+                    <h2 style="margin:0;">Welcome back! <span id="addUName"></span></h2>
+                    <p class="text-muted" style="margin:0;">Stay organized with your tasks, notes, and projects in one
+                        place.</p>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="stats-section w-100">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden dashboard-statistics">
+
+                    <div class="card-body py-4">
+                        <div class="row text-white align-items-center">
+
+                            <!-- Total Tasks -->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white rounded-1 p-2 me-2">
+                                        <i class="fa fa-tasks text-primary fs-2"></i>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="mb-1">Total Tasks</h6>
+                                        <h2 class="fw-bold mb-1" id="totalTasks">0</h2>
+                                        <small class="text-white-50">All assigned tasks</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Completed -->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 border-lg-start">
+                                <div class="d-flex align-items-center ps-lg-4">
+                                    <div class="bg-white rounded-1 p-2 me-2">
+                                        <i class="fa fa-check-circle text-success fs-2"></i>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="mb-1">Completed</h6>
+                                        <h2 class="fw-bold mb-1 text-white" id="completedTasks">0</h2>
+                                        <small class="text-white-50">Tasks completed</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- In Progress -->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 border-lg-start">
+                                <div class="d-flex align-items-center ps-lg-4">
+                                    <div class="bg-white rounded-1 p-2 me-2">
+                                        <i class="fa fa-clock-o text-warning fs-2"></i>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="mb-1">In Progress</h6>
+                                        <h2 class="fw-bold mb-1" id="progressTasks">0</h2>
+                                        <small class="text-white-50">Tasks in progress</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending -->
+                            <div class="col-lg-3 col-md-6 border-lg-start">
+                                <div class="d-flex align-items-center ps-lg-4">
+                                    <div class="bg-white rounded-1 p-2 me-2">
+                                        <i class="fa fa-calendar text-danger fs-2"></i>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="mb-1">Pending</h6>
+                                        <h2 class="fw-bold mb-1" id="pendingTasks">0</h2>
+                                        <small class="text-white-50">Tasks pending</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- tasks & overview -->
+            <section class="container-fluid mt-4">
+                <div class="row g-4">
+
+                    <!-- My Tasks -->
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm rounded-4 p-4 h-100">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="fw-bold mb-0">My Tasks</h5>
+
+                                <a href="my-tasks.html" class="text-decoration-none fw-semibold">
+                                    View All
+                                </a>
+                            </div>
+
+                            <div id="myTasks"></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Overview -->
+                    <div class="col-lg-5">
+                        <div class="card shadow-sm rounded-4 p-4 h-100">
+
+                            <h5 class="fw-bold mb-4">
+                                Tasks Overview
+                            </h5>
+
+                            <canvas id="taskChart" width="250" height="250">
+                            </canvas>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="navbar-container"></div>
+
+    <script src="../Only_JS/loader.js"></script>
+
+    <script src="navbar.js"></script>
+
+</body>
+
+</html>

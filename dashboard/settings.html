@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ==========================================
+     Basic Page Configuration
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting</title>
+    <!-- ==========================================
+    Bootstrap CSS & JavaScript
+    =========================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+
+    <!-- ==========================================
+         Font Awesome Icons
+    =========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- ==========================================
+         Custom Styles
+    =========================================== -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+
+    <!-- ==========================================
+         Application Scripts
+    =========================================== -->
+    <script src="../Only_JS/config.js"></script>
+    <script src="../Only_JS/auth.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+    <script src="profile.js"></script>
+    <script src="settings.js"></script>
+
+
+</head>
+
+<body>
+    <!-- ==========================================
+     Dashboard Wrapper
+    =========================================== -->
+    <div class="dashboard-shell">
+        <!-- ==========================================
+     Dashboard header
+    =========================================== -->
+        <header class="dashboard-header">
+            <!-- Sidebar Toggle & Page Title -->
+            <div class="brand-wrap">
+                <button class="menu-toggle" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Open navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 class="h3 mb-0">Settings</h1>
+            </div>
+            <!-- Header status -->
+            <div class="header-actions">
+                <span class="status-pill">Action</span>
+            </div>
+        </header>
+
+        <!-- ==========================================
+     Main Dashboard Content
+     =========================================== -->
+        <main class="dashboard-main">
+
+            <!-- ==========================================
+         Settings Section
+         =========================================== -->
+            <section class="welcome-card">
+
+                <!-- Page Heading -->
+                <h2>Settings</h2>
+
+                <!-- Page Description -->
+                <p>
+                    Manage your account preferences, personalize your experience,
+                    and control how your task management system works.
+                </p>
+
+                <!-- ==========================================
+             Account Settings Card
+            =========================================== -->
+                <div class="card shadow-sm rounded-4 mt-4 p-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Account Settings
+                    </h5>
+
+                    <p class="mb-0">
+                        Update your personal information, password, and profile details
+                        from the <strong>Profile</strong> page.
+                    </p>
+
+                </div>
+
+                <!-- ==========================================
+             Task Preferences Card
+             =========================================== -->
+                <div class="card shadow-sm rounded-4 mt-3 p-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Task Preferences
+                    </h5>
+
+                    <p class="mb-0">
+                        Organize your tasks using <strong>Priority</strong>, track your
+                        progress in <strong>Completed</strong>, and manage all active work
+                        from <strong>My Tasks</strong>.
+                    </p>
+
+                </div>
+
+                <!-- ==========================================
+             Dashboard Overview Card
+             =========================================== -->
+                <div class="card shadow-sm rounded-4 mt-3 p-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Dashboard Overview
+                    </h5>
+
+                    <p class="mb-0">
+                        Visit the <strong>Dashboard</strong> to view task statistics,
+                        progress summaries, and your overall productivity at a glance.
+                    </p>
+
+                </div>
+
+                <!-- ==========================================
+             Notifications & Appearance Card
+             =========================================== -->
+                <div class="card shadow-sm rounded-4 mt-3 p-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Notifications & Appearance
+                    </h5>
+
+                    <p class="mb-0">
+                        Future updates will allow you to manage notifications,
+                        choose application themes, and customize your workspace.
+                    </p>
+
+                </div>
+                <!-- ==========================================
+                         Delete Account
+            =========================================== -->
+                <div class="card shadow-sm rounded-4 mt-3 border-danger">
+
+                    <div class="card-body">
+
+                        <h5 class="fw-bold text-danger">
+                            Delete Account
+                        </h5>
+
+                        <p class="text-muted mb-3">
+                            Permanently delete your account and all associated task data.
+                            This action cannot be undone.
+                        </p>
+
+                        <button id="deleteAccountBtn" class="btn btn-danger">
+
+                            <i class="fa fa-trash me-2"></i>
+                            Delete Account
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+        <!-- ==========================================
+     Dashboard Navigation Container
+    =========================================== -->
+        <div id="navbar-container"></div>
+
+        <!-- ==========================================
+     Global Loader Script
+    =========================================== -->
+        <script src="../Only_JS/loader.js"></script>
+
+        <!-- ==========================================
+     Dashboard Navigation Script
+    =========================================== -->
+        <script src="navbar.js"></script>
+    </div>
+</body>
+
+</html>

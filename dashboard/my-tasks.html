@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ==========================================
+         Basic Page Configuration
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+
+    <!-- ==========================================
+         Bootstrap CSS & JavaScript
+    =========================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- ==========================================
+         Font Awesome Icons
+    =========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ==========================================
+         Custom Styles
+    =========================================== -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- ==========================================
+         Configuration & Popup Utilities
+    =========================================== -->
+    <script src="../Only_JS/config.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Dashboard Wrapper
+    =========================================== -->
+    <div class="dashboard-shell">
+
+        <!-- ==========================================
+             Dashboard Header
+        =========================================== -->
+        <header class="dashboard-header">
+
+            <!-- Sidebar Toggle & Page Title -->
+            <div class="brand-wrap">
+
+                <button class="menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                    aria-controls="offcanvas" aria-label="Open navigation">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+                <h1 class="h3 mb-0">
+                    My Tasks
+                </h1>
+
+            </div>
+
+            <!-- Current Page Status -->
+            <div class="header-actions">
+                <span class="status-pill">
+                    In focus
+                </span>
+            </div>
+
+        </header>
+
+        <!-- ==========================================
+             Main Content
+        =========================================== -->
+        <main class="dashboard-main">
+
+            <!-- Page Introduction -->
+            <section class="welcome-card">
+
+                <h2>
+                    My Tasks
+                </h2>
+
+                <p>
+                    Track the work you are actively managing and keep your progress organized.
+                </p>
+
+            </section>
+
+            <!-- ==========================================
+                 Task Management Section
+            =========================================== -->
+            <section class="container-fluid mt-4">
+
+                <div class="row g-4">
+
+                    <!-- ==========================================
+                         Add Task Form
+                    =========================================== -->
+                    <div class="col-lg-5">
+
+                        <div class="card shadow-sm rounded-4 p-4">
+
+                            <h5 class="fw-bold mb-3">
+                                Add New Task
+                            </h5>
+
+                            <!-- Task Form -->
+                            <form id="taskForm">
+
+                                <!-- Task Title -->
+                                <div class="mb-3">
+
+                                    <label for="taskTitle" class="form-label">
+                                        Task Title
+                                    </label>
+
+                                    <input type="text" id="taskTitle" class="form-control"
+                                        placeholder="Enter task title" required>
+
+                                </div>
+
+                                <!-- Task Description -->
+                                <div class="mb-3">
+
+                                    <label for="taskDescription" class="form-label">
+                                        Description
+                                    </label>
+
+                                    <textarea id="taskDescription" class="form-control" rows="3"
+                                        placeholder="Describe the task">
+                                    </textarea>
+
+                                </div>
+
+                                <!-- Future Category & Due Date Fields -->
+                                <!--
+                                <div class="row g-2 mb-3">
+                                    ...
+                                </div>
+                                -->
+
+                                <!-- Task Priority -->
+                                <div class="mb-3">
+
+                                    <label for="taskPriority" class="form-label">
+                                        Priority
+                                    </label>
+
+                                    <select id="taskPriority" class="form-select">
+
+                                        <option value="high">
+                                            High
+                                        </option>
+
+                                        <option value="medium">
+                                            Medium
+                                        </option>
+
+                                        <option value="low">
+                                            Low
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-primary w-100">
+
+                                    Add Task
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <!-- ==========================================
+                         Task List Section
+                    =========================================== -->
+                    <div class="col-lg-7">
+
+                        <div class="card shadow-sm rounded-4 p-4">
+
+                            <!-- Section Title -->
+                            <h5 class="fw-bold mb-3">
+                                Task List
+                            </h5>
+
+                            <!-- Tasks will be rendered dynamically -->
+                            <div id="taskList" class="mb-3"></div>
+
+                            <!-- Empty State -->
+                            <div id="taskEmpty" class="text-center text-secondary" style="display:none;">
+
+                                No tasks yet.
+                                <br>
+                                Add a task to get started.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ==========================================
+         Navbar Container (Loaded Dynamically)
+    =========================================== -->
+    <div id="navbar-container"></div>
+
+    <!-- ==========================================
+         Global Loader
+    =========================================== -->
+    <script src="../Only_JS/loader.js"></script>
+
+    <!-- ==========================================
+         Navbar Script
+    =========================================== -->
+    <script src="navbar.js"></script>
+
+    <!-- ==========================================
+         Task Utility Functions
+    =========================================== -->
+    <script src="tasks.js"></script>
+
+    <!-- ==========================================
+         Page Logic
+    =========================================== -->
+    <script>
+
+        // ==========================================
+        // Render All Tasks
+        // ==========================================
+        async function renderTasks() {
+
+            const taskList = document.getElementById("taskList");
+            const taskEmpty = document.getElementById("taskEmpty");
+
+            // Fetch all tasks
+            const tasks = await getTasks();
+
+            taskList.innerHTML = "";
+
+            // Show empty state if no tasks exist
+            if (!tasks.length) {
+
+                taskEmpty.style.display = "block";
+                return;
+
+            }
+
+            taskEmpty.style.display = "none";
+
+            // Display task cards
+            taskList.innerHTML = tasks.map(createTaskPreview).join("");
+
+            // Handle status updates
+            document.querySelectorAll(".task-status").forEach(select => {
+
+                select.addEventListener("change", async function () {
+
+                    const taskId = this.dataset.taskId;
+                    const newStatus = this.value;
+
+                    await updateTaskStatus(taskId, newStatus);
+
+                    // Refresh task list
+                    await renderTasks();
+
+                });
+
+            });
+
+            // Handle task deletion
+            document.querySelectorAll(".remove-task").forEach(button => {
+
+                button.addEventListener("click", async function () {
+
+                    const taskId = this.dataset.taskId;
+
+                    window.setButtonLoading?.(
+                        this,
+                        true,
+                        "Deleting..."
+                    );
+
+                    window.showAppLoader?.("Deleting task...");
+
+                    try {
+
+                        await removeTask(taskId);
+
+                        await renderTasks();
+
+                    } finally {
+
+                        window.hideAppLoader?.();
+
+                        window.setButtonLoading?.(
+                            this,
+                            false
+                        );
+
+                    }
+
+                });
+
+            });
+
+        }
+
+        // ==========================================
+        // Initialize Page
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", async function () {
+
+            // Show loader while tasks are loading
+            window.showAppLoader?.("Loading tasks...");
+
+            try {
+
+                await renderTasks();
+
+            } finally {
+
+                window.hideAppLoader?.();
+
+            }
+
+            // ==========================================
+            // Add Task Form Submission
+            // ==========================================
+            document.getElementById("taskForm")
+                .addEventListener("submit", async function (event) {
+
+                    event.preventDefault();
+
+                    const submitButton =
+                        this.querySelector('button[type="submit"]');
+
+                    // Collect form data
+                    const taskData = {
+
+                        title: document.getElementById("taskTitle").value.trim(),
+
+                        description: document
+                            .getElementById("taskDescription")
+                            .value
+                            .trim(),
+
+                        priority:
+                            document.getElementById("taskPriority").value,
+
+                        status:
+                            document.getElementById("taskStatus")?.value ||
+                            "pending"
+
+                    };
+
+                    // Validate title
+                    if (!taskData.title) {
+
+                        showCustomPopup(
+                            "Task title is required."
+                        );
+
+                        return;
+
+                    }
+
+                    window.setButtonLoading?.(
+                        submitButton,
+                        true,
+                        "Adding..."
+                    );
+
+                    window.showAppLoader?.("Adding task...");
+
+                    try {
+
+                        await addTask(taskData);
+
+                        // Reset form
+                        this.reset();
+
+                        // Refresh task list
+                        await renderTasks();
+
+                    } finally {
+
+                        window.hideAppLoader?.();
+
+                        window.setButtonLoading?.(
+                            submitButton,
+                            false
+                        );
+
+                    }
+
+                });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

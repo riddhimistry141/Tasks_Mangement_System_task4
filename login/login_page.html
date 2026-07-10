@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==========================================
+         Basic Page Configuration
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- ==========================================
+         Bootstrap CSS & JavaScript
+    =========================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ==========================================
+         Font Awesome Icons
+    =========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ==========================================
+         Custom Styles
+    =========================================== -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- ==========================================
+         Application Scripts
+    =========================================== -->
+    <script src="../Only_JS/config.js"></script>
+    <script src="../Only_JS/auth.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+    <script src="../Only_JS/loader.js"></script>
+    <script src="login.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+    <!-- ==========================================
+         Login Page Container
+    =========================================== -->
+    <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center py-4">
+
+        <!-- Login Card -->
+        <div class="row shadow-lg rounded-4 overflow-hidden w-100 g-0" style="max-width: 1100px;">
+
+            <!-- ==========================================
+                 Login Form Section
+            =========================================== -->
+            <div class="col-lg-6 bg-white p-4 p-md-5">
+
+                <!-- Login Form -->
+                <form class="w-100" id="loginForm" onsubmit="return false;">
+
+                    <!-- Company Logo -->
+                    <img class="img-fluid mb-4" src="../images/logo.png" alt="Logo" style="width: 70px;">
+
+                    <!-- Welcome Message -->
+                    <div class="mb-4">
+
+                        <h1 class="fw-bold mb-2">
+                            Welcome Back!
+                        </h1>
+
+                        <p class="text-muted">
+                            Please enter your login details below
+                        </p>
+
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="mb-3">
+
+                        <label for="addEmail" class="form-label fw-bold">
+
+                            Email
+
+                        </label>
+
+                        <input id="addEmail" type="email" class="form-control form-control-lg"
+                            placeholder="Enter the email">
+
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="mb-3">
+
+                        <label for="addPWd" class="form-label fw-bold">
+
+                            Password
+
+                        </label>
+
+                        <input id="addPWd" type="password" class="form-control form-control-lg"
+                            placeholder="Enter the password">
+
+                        <!-- Forgot Password Link -->
+                        <p class="text-end mt-2 mb-3">
+
+                            <a href="#" class="text-decoration-none">
+
+                                Forgot your password?
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                    <!-- Login Actions -->
+                    <div class="d-flex flex-column align-items-center">
+
+                        <!-- Sign In Button -->
+                        <button class="btn btn-dark w-100" type="submit">
+
+                            Sign in
+
+                        </button>
+
+                        <!-- Divider -->
+                        <p class="divider-text mt-3 mb-3">
+
+                            <span>
+                                Or continue with
+                            </span>
+
+                        </p>
+
+                        <!-- Google Login -->
+                        <button type="button" class="btn btn-outline-secondary w-100" onclick="btnGoogleLogIn()">
+
+                            <i class="fa fa-google"></i>
+
+                            Log in with Google
+
+                        </button>
+
+                    </div>
+
+                    <!-- Registration Link -->
+                    <p class="text-muted text-center mt-3">
+
+                        Don't have an account?
+
+                        <a href="../sign up/signup.html">
+                            Sign Up
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </div>
+
+            <!-- ==========================================
+                 Right Side Information Panel
+            =========================================== -->
+            <div class="col-lg-6 bg-primary text-white p-4 p-md-5 d-flex align-items-center">
+
+                <div class="w-100">
+
+                    <!-- Promotional Heading -->
+                    <h2 class="fw-bold mb-3">
+                        Manage tasks smarter
+                    </h2>
+
+                    <!-- Promotional Description -->
+                    <p class="text-white-50 mb-4">
+                        Plan your work, track progress, and stay organized in one beautiful task management space.
+                    </p>
+
+                    <!-- Dashboard Illustration -->
+                    <div class="bg-white rounded-4 p-3 text-dark">
+
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="w-100"
+                            style="height:auto;">
+
+                            <!-- Dashboard Card -->
+                            <rect x="50" y="70" width="300" height="180" rx="20" fill="#ffffff" opacity="0.95"></rect>
+
+                            <!-- Task Lines -->
+                            <rect x="80" y="100" width="140" height="16" rx="8" fill="#2563eb"></rect>
+                            <rect x="80" y="132" width="180" height="12" rx="6" fill="#93c5fd"></rect>
+                            <rect x="80" y="156" width="160" height="12" rx="6" fill="#93c5fd"></rect>
+                            <rect x="80" y="180" width="120" height="12" rx="6" fill="#93c5fd"></rect>
+
+                            <!-- Completion Badge -->
+                            <circle cx="285" cy="150" r="45" fill="#f59e0b"></circle>
+
+                            <!-- Success Checkmark -->
+                            <path d="M260 150l18 18 35-38" stroke="#fff" stroke-width="10" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

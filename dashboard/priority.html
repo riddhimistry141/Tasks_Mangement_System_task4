@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==========================================
+         Basic Page Configuration
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority</title>
+
+    <!-- ==========================================
+         Bootstrap CSS & JavaScript
+    =========================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- ==========================================
+         Font Awesome Icons
+    =========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ==========================================
+         Custom Styles
+    =========================================== -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- ==========================================
+         Application Scripts
+    =========================================== -->
+    <script src="../Only_JS/config.js"></script>
+    <script src="tasks.js"></script>
+    <script src="../Only_JS/popup.js"></script>
+    <script src="../Only_JS/loader.js"></script>
+    <script src="priority.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Dashboard Wrapper
+    =========================================== -->
+    <div class="dashboard-shell">
+
+        <!-- ==========================================
+             Dashboard Header
+        =========================================== -->
+        <header class="dashboard-header">
+
+            <!-- Sidebar Toggle & Page Title -->
+            <div class="brand-wrap">
+
+                <button class="menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                    aria-controls="offcanvas" aria-label="Open navigation">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+                <h1 class="h3 mb-0">
+                    Priority
+                </h1>
+
+            </div>
+
+            <!-- Current Page Status -->
+            <div class="header-actions">
+
+                <span class="status-pill">
+                    High Impact
+                </span>
+
+            </div>
+
+        </header>
+
+        <!-- ==========================================
+             Main Content
+        =========================================== -->
+        <main class="dashboard-main">
+
+            <!-- Priority Tasks Section -->
+            <section class="welcome-card">
+
+                <!-- Page Heading -->
+                <h2>
+                    Priority
+                </h2>
+
+                <!-- Page Description -->
+                <p>
+                    Focus on the tasks that matter most and review urgent items first.
+                </p>
+
+                <!-- Priority Task List Card -->
+                <div class="card shadow-sm rounded-4 mt-4 p-4">
+
+                    <!-- Section Title -->
+                    <h5 class="fw-bold mb-3">
+                        Urgent
+                    </h5>
+
+                    <!-- Priority Tasks (Loaded Dynamically) -->
+                    <div id="priorityList"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ==========================================
+         Navbar Container (Loaded Dynamically)
+    =========================================== -->
+    <div id="navbar-container"></div>
+
+    <!-- ==========================================
+         Navigation Script
+    =========================================== -->
+    <script src="navbar.js"></script>
+
+</body>
+
+</html>
